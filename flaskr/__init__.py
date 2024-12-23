@@ -4,6 +4,7 @@ from flask import Flask
 #import flask application object
 from . import db
 from . import auth
+from . import blog
 
 
 #this function is known as application factory because it will be dealing with
@@ -41,5 +42,8 @@ def create_app(test_config=None):
     # create/connect to database, open database file, run commands and close
     app.register_blueprint(auth.bp)
     # registering authentication blueprint
+    app.register_blueprint(blog.bp)
+    app.add_url_rule('/', endpoint='index')
+    # registering blog page blueprint with endpoint index
     
     return app
