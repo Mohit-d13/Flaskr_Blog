@@ -38,6 +38,8 @@ def create_app(test_config=None):
         return "Start flask Project Testing"
     
     db.init_app(app)
+    # create/connect to database, open database file, run commands and close
     app.register_blueprint(auth.bp)
+    # registering authentication blueprint
     
     return app
